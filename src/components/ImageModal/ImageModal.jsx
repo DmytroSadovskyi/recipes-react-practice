@@ -8,6 +8,7 @@ const customStyles = {
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
+    padding: '0px',
   },
 };
 
@@ -22,8 +23,18 @@ export const ImageModal = ({ isOpen, image, onClose }) => {
       contentLabel="Image modal"
     >
       <div>
-        <img src={image} alt="hru hru" width="640" />
-        <button onClick={onClose}>Close</button>
+        <img
+          src={image}
+          alt="hru hru"
+          width="640"
+          style={{ position: 'relative' }}
+        />
+        <button
+          onClick={onClose}
+          style={{ position: 'absolute', top: '8px', right: ' 8px' }}
+        >
+          X
+        </button>
       </div>
     </Modal>
   );
