@@ -17,14 +17,22 @@ export const Image = styled.img`
   object-fit: cover;
 `;
 
+export const Wrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  flex-grow: 1;
+`;
 export const Name = styled.h2`
   margin-top: 8px;
   margin-bottom: 12px;
 `;
 export const RecipeInfo = styled.ul`
   display: flex;
-  gap: 10px;
-  margin-bottom: 10px;
+  justify-content: space-between;
+  gap: 8px;
+  flex-grow: 1;
+  margin-bottom: 20px;
 `;
 
 export const RecipeInfoItem = styled.li`
