@@ -13,6 +13,7 @@ import {
   RecipeInfo,
   RecipeInfoItem,
   Actions,
+  Wrap,
 } from './RecipeCard.styled';
 import { ImageModal } from 'components/ImageModal/ImageModal';
 
@@ -50,36 +51,37 @@ export class RecipeCard extends Component {
     return (
       <Container>
         <Image src={image} alt={name} width="200" />
-        <Name>{name}</Name>
-        <RecipeInfo>
-          <RecipeInfoItem>
-            <TfiTimer size={20} />
-            <span>{time} min</span>
-          </RecipeInfoItem>
-          <RecipeInfoItem>
-            <FiPieChart size={20} />
-            <span>{servings} servings</span>
-          </RecipeInfoItem>
-          <RecipeInfoItem>
-            <HiOutlineChartBar size={20} />
-            <span>{calories} calories</span>
-          </RecipeInfoItem>
-        </RecipeInfo>
-        <section>
-          <DifficultyTitle>Difficulty</DifficultyTitle>
-          <DifficultyInfo>
-            <DifficultyBadge active={difficulty === 'easy'} type="easy">
-              Easy
-            </DifficultyBadge>
-            <DifficultyBadge active={difficulty === 'medium'} type="medium">
-              Medium
-            </DifficultyBadge>
-            <DifficultyBadge active={difficulty === 'hard'} type="hard">
-              Hard
-            </DifficultyBadge>
-          </DifficultyInfo>
-        </section>
-
+        <Wrap>
+          <Name>{name}</Name>
+          <RecipeInfo>
+            <RecipeInfoItem>
+              <TfiTimer size={20} />
+              <span>{time} min</span>
+            </RecipeInfoItem>
+            <RecipeInfoItem>
+              <FiPieChart size={20} />
+              <span>{servings} servings</span>
+            </RecipeInfoItem>
+            <RecipeInfoItem>
+              <HiOutlineChartBar size={20} />
+              <span>{calories} calories</span>
+            </RecipeInfoItem>
+          </RecipeInfo>
+          <section>
+            <DifficultyTitle>Difficulty</DifficultyTitle>
+            <DifficultyInfo>
+              <DifficultyBadge active={difficulty === 'easy'} type="easy">
+                Easy
+              </DifficultyBadge>
+              <DifficultyBadge active={difficulty === 'medium'} type="medium">
+                Medium
+              </DifficultyBadge>
+              <DifficultyBadge active={difficulty === 'hard'} type="hard">
+                Hard
+              </DifficultyBadge>
+            </DifficultyInfo>
+          </section>
+        </Wrap>
         <Actions>
           <button aria-label="Delete" onClick={() => onDelete(id)}>
             <HiTrash />
