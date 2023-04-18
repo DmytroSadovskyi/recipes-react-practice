@@ -31,15 +31,15 @@ export class RecipeCard extends Component {
   };
 
   state = {
-    selectedImage: null,
+    isOpen: false,
   };
 
-  setSelectedImage = () => {
-    this.setState({ selectedImage: this.props.item.image });
+  openModal = () => {
+    this.setState({ isOpen: true });
   };
 
   closeModal = () => {
-    this.setState({ selectedImage: null });
+    this.setState({ isOpen: false });
   };
 
   render() {
@@ -47,7 +47,7 @@ export class RecipeCard extends Component {
       item: { id, name, time, servings, calories, image, difficulty },
       onDelete,
     } = this.props;
-    const { selectedImage } = this.state;
+    const { isOpen } = this.state;
     return (
       <Container>
         <Image src={image} alt={name} width="200" />
@@ -86,16 +86,12 @@ export class RecipeCard extends Component {
           <button aria-label="Delete" onClick={() => onDelete(id)}>
             <HiTrash />
           </button>
-          <button aria-label="Zoom" onClick={this.setSelectedImage}>
+          <button aria-label="Zoom" onClick={this.openModal}>
             <HiZoomIn />
           </button>
         </Actions>
 
-        <ImageModal
-          isOpen={selectedImage !== null}
-          onClose={this.closeModal}
-          image={selectedImage}
-        />
+        <ImageModal isOpen={isOpen} onClose={this.closeModal} image={image} />
       </Container>
     );
   }
