@@ -26,7 +26,7 @@ export const ImageModal = ({ isOpen, image, onClose }) => {
         <img
           src={image}
           alt="hru hru"
-          width="640"
+          width="450"
           style={{ position: 'relative' }}
         />
         <button

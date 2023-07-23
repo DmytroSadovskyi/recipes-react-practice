@@ -11,6 +11,7 @@ const theme = {
     black: '#000000',
     text: '#212121',
     accent: 'orangered',
+    error: 'red',
   },
   radii: {
     xs: '2px',
